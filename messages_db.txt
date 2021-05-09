@@ -1,1 +1,1 @@
-[][{"id":1,"message":"Hello there!","from":"_CLIENT_1"},{"id":2,"message":"Howdy!","from":"_CLIENT_2"},{"id":3,"message":"Hello!","from":"_CLIENT_3"},{"id":4,"message":"Hey","from":"_CLIENT_4"},{"id":5,"message":"heya","from":"_CLIENT_5"}]
+[{"id":1,"message":"Hello there!","from":"_CLIENT_1"},{"id":2,"message":"Howdy!","from":"_CLIENT_2"},{"id":3,"message":"Hello!","from":"_CLIENT_3"},{"id":4,"message":"Hey","from":"_CLIENT_4"},{"id":5,"message":"heya","from":"_CLIENT_5"}]

@@ -11,8 +11,26 @@ mod data;
 
 // GET all messages
 #[get("/messages")]
-fn index() -> content::Json<String>{
+fn get_all_messages() -> content::Json<String>{
    content::Json(data::read_all_messages().unwrap())
+}
+
+
+// GET message by id
+#[get("/messages/<id>")]
+fn get_message_by_id(id:u8) -> content::Json<String>{
+   let all_messages: Vec<data::Message> = match data::parse_all_messages(){
+      Ok(contents) => contents,
+      Err(_) => Vec::new()
+   };
+
+   if let Some(src_pos) = all_messages
+      .iter()
+      .position(|src_msg| src_msg.id == id){
+         content::Json(serde_json::to_string(&all_messages[src_pos]).unwrap())
+      }else{
+         content::Json(String::from("{}"))
+      }
 }
 
 
@@ -120,7 +138,8 @@ fn main() {
    rocket::ignite()
    .register(catchers![not_found_error])
    .mount("/", routes![
-         index,
+         get_all_messages,
+         get_message_by_id,
          new_message,
          delete_message,
          delete_all_messages,
